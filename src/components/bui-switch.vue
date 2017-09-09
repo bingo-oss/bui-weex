@@ -17,15 +17,16 @@
             "title": {      //文本
                 type: String
             },
-            "checked": {    //默认值为 false，表明按钮是否开启 is on or not.
-                type: Boolean,
-                default: false
-            },
             "disabled": {   //默认值为 false，表明是否激活按钮
                 type: Boolean,
                 default: false
             }
 
+        },
+        data: function () {
+            return {
+                checked : false, //默认值为 false，表明按钮是否开启 is on or not.
+            }
         },
         methods: {
             "onchange": function (event) {
