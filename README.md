@@ -4,6 +4,8 @@
 
 官网：[http://dev.bingocc.com/buiweex/](http://dev.bingocc.com/buiweex/)
 
+想要看到最新的问题fix情况，请切换到 `dev`分支
+
 ## 沟通交流
 
 **我们的GitHub仓库**

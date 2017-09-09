@@ -1,5 +1,5 @@
 <template>
-    <div :class="[changeDirection]">
+    <div :class="[changeDirection,'flex-fluid']">
         <div class="radio-box flex-row" :class="[v.disabled ? 'disabled':'']" v-for="v in radioItems" @click="select(v)">
             <div class="bui-icon-box" v-if="v.select"><bui-icon @click="select(v)" name="icon-radio-on" :color="selectedColor"></bui-icon></div>
             <div class="bui-icon-box" v-if="!v.select"><bui-icon @click="select(v)" name="icon-radio" :color="unSelectedColor"></bui-icon></div>

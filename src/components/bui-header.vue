@@ -6,14 +6,14 @@
                 <text class="bui-header-title" @click="_centerClick($event)">{{title}}</text>
             </div>
             <div class="bui-header-left">
-                <bui-icon @click="_leftClick($event)" v-if="leftItem.icon||leftItem.icons" :name="leftItem.icon||leftItem.icons" size="45px"
-                          color="#ffffff" class="pdr10"></bui-icon>
+                <bui-icon @click="_leftClick($event)" v-if="leftItem.icon||leftItem.icons" :name="leftItem.icon||leftItem.icons" :size="iconSize"
+                          :color="iconColor" class="pdr10"></bui-icon>
                 <text @click="_leftClick($event)" v-if="leftItem.text" class="bui-header-text">{{leftItem.text}}</text>
                 <slot name="left"></slot>
             </div>
             <div class="bui-header-right">
-                <bui-icon @click="_rightClick($event)" v-if="rightItem.icon||rightItem.icons" :name="rightItem.icon||rightItem.icons" size="45px"
-                          color="#ffffff" class="pdl10"></bui-icon>
+                <bui-icon @click="_rightClick($event)" v-if="rightItem.icon||rightItem.icons" :name="rightItem.icon||rightItem.icons" :size="iconSize"
+                          :color="iconColor" class="pdl10"></bui-icon>
                 <text @click="_rightClick($event)" v-if="rightItem.text" class="bui-header-text">{{rightItem.text}}
                 </text>
                 <slot name="right"></slot>
@@ -54,6 +54,14 @@
             ios: {
                 type: Boolean,
                 default: true
+            },
+            iconColor:{
+                type: String,
+                default:"#ffffff"
+            },
+            iconSize:{
+                type: String,
+                default:"45px"
             }
         },
         data: function () {

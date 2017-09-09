@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "glob": "^7.1.2",
-    "vue": "^2.1.8",
+    "vue": "^2.4.2",
     "vue-router": "^2.1.1",
     "vuex": "^2.1.1",
     "vuex-router-sync": "^4.0.1",
@@ -45,7 +45,7 @@
     "sass-loader": "^6.0.3",
     "serve": "^1.4.0",
     "vue-loader": "^10.0.2",
-    "vue-template-compiler": "^2.1.8",
+    "vue-template-compiler": "^2.4.2",
     "webpack": "^1.14.0",
     "weex-devtool": "^0.2.64",
     "weex-loader": "^0.4.1",

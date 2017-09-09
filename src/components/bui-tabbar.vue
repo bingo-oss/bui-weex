@@ -31,9 +31,9 @@
             selectedBackground: {default: '#f7f7f7'},
             normalColor: {default: '#818181'},
             selectedColor: {default: '#4ca4fe'},
-            containerStyle: {type: Object, default: {}},
-            itemStyle: {type: Object, default: {}},
-            showSelectedLine: {type: Boolean, default: false}
+            containerStyle: {default: function(){ return{} }},
+            itemStyle: {default: function(){ return{} }},
+            showSelectedLine: { default: false}
         },
         created: function () {
             var index=0;
