@@ -57,7 +57,6 @@
 
         },
         components: {
-            // "bui-image": buiImage.buiImage
         },
         mounted: function () {
             globalEvent.addEventListener("androidback",(e)=> {

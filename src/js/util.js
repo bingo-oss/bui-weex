@@ -2,6 +2,7 @@
 
 let util = {
     formatDate(time,format){
+        format = format || "yyyy-MM-dd hh:mm:ss";
         let d = new Date();//创建时间对象
         let localTime = time;//当地时间戳
         let localOffset=d.getTimezoneOffset()*60000;//获得当地时间偏移的毫秒数
