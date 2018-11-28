@@ -30,7 +30,7 @@ let util = {
         return WXEnvironment && (WXEnvironment.deviceModel.indexOf('iPad') === 0);
     },
     isIPhoneX() {
-        return WXEnvironment && (WXEnvironment.deviceModel === 'iPhone10,3' || WXEnvironment.deviceModel === 'iPhone10,6');
+        return WXEnvironment && (WXEnvironment.deviceModel === 'iPhone10,3' || WXEnvironment.deviceModel === 'iPhone10,6' || WXEnvironment.deviceModel === 'iPhone11,6');
     },
     isIPhone(){
         return WXEnvironment &&  WXEnvironment.platform === 'iOS';
