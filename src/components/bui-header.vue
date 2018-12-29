@@ -44,7 +44,7 @@
         icons: '',
         text: ''
     };
-    import util from "src/js/util";
+    import util from "../js/util";
     var platform = weex.config.env.platform.toLowerCase();
     module.exports = {
         data(){
