@@ -340,7 +340,7 @@ let buiweex = {
             let headers = params.headers || {};
             let data = params.data || {};
             let type = params.type || "json";
-            if (!url.includes("?")) {
+            if (url.indexOf("?")<0) {
                 url += "?";
             }
             if (typeof data == "object") {
