@@ -96,11 +96,8 @@
         },
         watch: {
             value (){
-                this.newList = this.initList();
-            },
-            // items () {
-            //     this.newList = this.initList();
-            // }
+                this.newItems = this.initList();
+            }
         },
         computed: {
             customStyles(){
@@ -117,6 +114,12 @@
                     "leftColumn": this.leftColumn,
                 }
             },
+            // boxStyle(){
+            //     const { disabled } = this;
+            //     return {
+            //         opacity: disabled ? 0.5 : 1
+            //     }
+            // },
             cWrapperStyle () {
                 const { disabled } = this;
                 return {

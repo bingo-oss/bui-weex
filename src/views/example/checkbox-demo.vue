@@ -9,11 +9,22 @@
         <div style="padding: 10px;flex: 1">
             <scroller>
                 <text class="h4">横向多选</text>
-                <bui-checkbox v-model="selectedValue1" :items="items1"></bui-checkbox>
+                <text class="h4" @click="fn">点击不可选</text>
+                <text class="h4" @click="valueFn">点击多选清空</text>
+                <bui-checkbox v-model="obj.selectedValue1" :items="items1" :disabled="disabled"></bui-checkbox>
                 <text class="h4 mT50">垂直多选(右边文字)</text>
                 <bui-checkbox v-model="selectedValue" direction="vertical" :items="items"></bui-checkbox>
-                <text class="h4 mT50" @click="fn">垂直多选(左边文字)</text>
-                <bui-checkbox textDirection="left"  :textStyles="textStyles" iconSize="30" fontSize="30" :containerStyle="containerStyle" direction="vertical" selectedColor="#FF943B" v-model="selectedValue" @selected="selected" :items="items"></bui-checkbox>
+                <text class="h4 mT50">垂直多选(左边文字)</text>
+                <bui-checkbox textDirection="left"
+                              :textStyles="textStyles"
+                              iconSize="30"
+                              fontSize="30"
+                              :containerStyle="containerStyle"
+                              direction="vertical"
+                              selectedColor="#FF943B"
+                              v-model="selectedValue"
+                              @selected="selected"
+                              :items="items"></bui-checkbox>
                 <text class="h4 mT50">多选场景案例</text>
                 <text style="text-align: center;background-color: #ff9900;padding: 30px;border-radius: 10px;color: #fff;" @click="open1()">弹出层多选列表</text>
             </scroller>
@@ -67,6 +78,9 @@
                     {value:"4",title:'选项三 fdsf'}
                 ],
                 disabled: false,
+                obj: {
+                    "selectedValue1": ["2"]
+                }
             }
         },
         computed:{
@@ -86,8 +100,12 @@
                     borderBottomStyle : 'solid',
                 }
             },
+
         },
         methods: {
+            valueFn(){
+                this.obj.selectedValue1 = [];
+            },
             fn(){
                 this.disabled = !this.disabled
             },

@@ -2,7 +2,17 @@
     <div :class="['flex-row', 'row-center-left', 'bui-searchbar', 'bui-search-bg']" @click="onfocusFn()">
         <div :class="['flex-row', 'row-center-left', 'span1', 'bui-input']">
             <bui-icon name="ion-ios-search-strong"></bui-icon>
-            <input ref="inputSearch"  class="span1 bui-search-input-text" @focus="onfocus($event)" @blur="onblur($event)" @input="oninput($event)" :value="valueNew" :autofocus="autofocusNew"  @return="search" return-key-type="search" type="text" :placeholder="placeholder"/>
+            <input ref="inputsearch"
+                   class="span1 bui-search-input-text"
+                   @focus="onfocus($event)"
+                   @blur="onblur($event)"
+                   @input="oninput($event)"
+                   :value="valueNew"
+                   :autofocus="autofocusNew"
+                   @return="search"
+                   return-key-type="search"
+                   type="text"
+                   :placeholder="placeholder"/>
             <bui-icon class="bui-search-icon-delete" @click="onclear($event)" v-if="deletestatus" name="ion-ios-close-outline"></bui-icon>
         </div>
         <text :class="['bui-search-search', 'bui-search-text-color']" @click="search()" v-if="searchstatus">搜索</text>
@@ -64,9 +74,9 @@
             },
             //清除搜索输入值
             onclear(event) {
+                this.valueNew = "";
                 this.autofocusNew = false;
                 this.deletestatus = false;
-                this.valueNew = "";
                 this.$emit('clear');
             },
             //搜索
@@ -75,7 +85,7 @@
             },
             //关闭键盘
             hideKeyboard(){
-                this.$refs.inputSearch.blur();
+                this.$refs.inputsearch.blur();
             }
         }
     }

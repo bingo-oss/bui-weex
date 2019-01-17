@@ -1,12 +1,20 @@
 <template>
     <div>
-        <bui-header
-                title="弹出框(bui-dialog)"
-                :leftItem="leftItem"
-                @leftClick="back">
-        </bui-header>
+        <bui-header title="弹出框(bui-dropload)"
+                    :leftItem="leftItem"
+                    @leftClick="back"></bui-header>
 
-        <bui-dropload :droploadStyle="droploadStyle" :refreshStyle="refreshStyle" :refreshTextStyle="refreshTextStyle" :refreshTextMap="refreshTextMap" :refreshIconStyle="refreshIconStyle" :loadingStyle="loadingStyle" :loadingTextStyle="loadingTextStyle" :loadingIconStyle="loadingIconStyle" :loadingTextMap="loadingTextMap" @loading="loading" @refresh="refresh">
+        <bui-dropload :droploadStyle="droploadStyle"
+                      :refreshStyle="refreshStyle"
+                      :refreshTextStyle="refreshTextStyle"
+                      :refreshTextMap="refreshTextMap"
+                      :refreshIconStyle="refreshIconStyle"
+                      :loadingStyle="loadingStyle"
+                      :loadingTextStyle="loadingTextStyle"
+                      :loadingIconStyle="loadingIconStyle"
+                      :loadingTextMap="loadingTextMap"
+                      @loading="loading"
+                      @refresh="refresh">
             <cell v-for="(item,index) in list">
                 <bui-cell :key="index" :title="item"></bui-cell>
             </cell>
@@ -18,7 +26,7 @@
 
 <script>
     export default {
-        data: function(){
+        data () {
             return {
                 leftItem: {
                     icon: 'ion-chevron-left'
