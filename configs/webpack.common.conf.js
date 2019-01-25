@@ -152,12 +152,12 @@ const getBaseConfig = () => ({
                 use: [{
                     loader: 'babel-loader'
                 }],
-                exclude: config.excludeModuleReg
+                // exclude: config.excludeModuleReg
             },
             {
                 test: /\.vue(\?[^?]+)?$/,
                 use: [],
-                exclude: config.excludeModuleReg
+                // exclude: config.excludeModuleReg
             }
         ]
     },
