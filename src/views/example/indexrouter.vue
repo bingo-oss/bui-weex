@@ -2,6 +2,7 @@
     <div class="flex-column">
         <bui-header title="路由(router)" :leftItem="leftItem" @leftClick="back"></bui-header>
         <div class="panel">
+            <!--<text class='link' :style="{'color:active': 'black'}" @click='linkTo("/")'>tab1</text>-->
             <text class='link' :style="{'color:active': 'black'}" @click='linkTo("/")'>tab1</text>
             <text class='link' :style="{'color:active': 'black'}" @click='linkTo(`/test1/${id}`)'>tab2</text>
             <text class='link' :style="{'color:active': 'black'}" @click='linkTo("/test2")'>tab3</text>

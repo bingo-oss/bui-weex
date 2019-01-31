@@ -5,7 +5,7 @@
                 <bui-icon v-if="!deletestatus" name="ion-ios-search-strong" @click="onfocusFn"></bui-icon>
                 <text class="bui-search-icon-box-text" v-if="!searchstatus">搜索</text>
             </div>
-            <input ref="inputSearch" class="span1 bui-search-input-text" v-if="searchstatus" @focus="onfocus($event)" @return="search" return-key-type="search" @blur="onblur($event)" @input="oninput($event)" :value="valueNew" :autofocus="autofocusNew" type="text" :placeholder="placeholder"/>
+            <input ref="inputSearch" class="span1 bui-search-input-text" v-if="searchstatus" @focus="onfocus($event)" @return="search" return-key-type="search" @blur="onblur($event)" @input="oninput($event)" v-model="valueNew" :autofocus="autofocusNew" type="text" :placeholder="placeholder"/>
             <bui-icon class="bui-search-icon-delete" @click="onclear($event)" v-if="deletestatus" name='ion-ios-close-outline'></bui-icon>
         </div>
         <text :class="['bui-search-search', 'bui-search-text-color']" @click="search()" v-if="searchstatus">搜索</text>

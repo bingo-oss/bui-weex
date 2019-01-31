@@ -14,6 +14,8 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 /**
  * Webpack configuration for weex.
  */
+commonConfig[1].module.rules[0].exclude = config.excludeModuleReg;
+commonConfig[1].module.rules[1].exclude = config.excludeModuleReg;
 const weexConfig = webpackMerge(commonConfig[1], {
     /*
      * Add additional plugins to the compiler.
