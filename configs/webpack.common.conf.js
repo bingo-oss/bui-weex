@@ -152,12 +152,13 @@ const getBaseConfig = () => ({
                 use: [{
                     loader: 'babel-loader'
                 }],
-                // exclude: config.excludeModuleReg
+                // 如需支持较低版本系统，例如ios8,需要去掉该配置
+                exclude: config.excludeModuleReg
             },
             {
                 test: /\.vue(\?[^?]+)?$/,
                 use: [],
-                // exclude: config.excludeModuleReg
+                exclude: config.excludeModuleReg
             }
         ]
     },
@@ -203,7 +204,12 @@ weexConfig.output.filename = '[name].js';
 weexConfig.module.rules[1].use.push(
     {
         loader: 'weex-loader',
-        options: vueLoaderConfig({useVue: false})
+        options: Object.assign(vueLoaderConfig({useVue: false}),{
+            postcss:[
+              //让weex支持css的简写，如border,padding
+              require("postcss-weex")({env:"weex"})
+            ]
+        })
     }
 );
 weexConfig.node = config.nodeConfiguration;

@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "phantom-limb": "0.0.1",
+    "postcss-weex": "^1.0.5",
     "vue": "^2.5.11",
     "vue-router": "^3.0.1",
     "weex-vue-render": "^1.0.17"
