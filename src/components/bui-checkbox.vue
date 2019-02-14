@@ -97,6 +97,9 @@
         watch: {
             value (){
                 this.newItems = this.initList();
+            },
+            items(){
+                this.newItems = this.initList();
             }
         },
         computed: {
