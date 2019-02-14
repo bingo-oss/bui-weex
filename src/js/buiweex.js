@@ -6,7 +6,7 @@ const animation = weex.requireModule('animation');
 const navigator = weex.requireModule('navigator');
 const navigatorEx = weex.requireModule("NavigatorExModule");
 const stream = weex.requireModule('stream');
-
+const app = weex.requireModule("AppModule");//仅支持在Link中使用
 
 import util from './util.js';
 
@@ -371,6 +371,7 @@ let buiweex = {
 
     /**
      * 适配viewport
+     * @method fixViewport
      */
     fixViewport(){
         let _this = buiweex;
@@ -385,6 +386,77 @@ let buiweex = {
         meta.setViewport({
             width: width
         });
+    },
+
+    /**
+     * 显示加载中进度条
+     * @method showLoading
+     * @param {object} params 参数
+     * @param {string} params.title 显示文本
+     */
+    showLoading(params){
+        let options = { title:"加载中..." };
+        if(typeof params == "string"){
+            options.title = params;
+        }
+        if(typeof params == "object"){
+            options = Object.assign(options,params);
+        }
+        try{
+            app.showLoading(options);
+        }catch(e){
+        }
+    },
+
+    /**
+     * 隐藏加载中进度条
+     * @method hideLoading
+     */
+    hideLoading(){
+        try {
+            app.hideLoading();
+        } catch (e) { 
+        }
+    },
+
+    /**
+     * 显示操作成功
+     * @method showSuccess
+     * @param {object} params 参数
+     * @param {string} params.title 显示文本
+     */
+    showSuccess(params){
+        let options = { title:"操作成功" };
+        if(typeof params == "string"){
+            options.title = params;
+        }
+        if(typeof params == "object"){
+            options = Object.assign(options,params);
+        }
+        try{
+            app.showSuccess(options);
+        }catch(e){
+        }
+    },
+
+    /**
+     * 显示操作失败
+     * @method showError
+     * @param {object} params 参数
+     * @param {string} params.title 显示文本
+     */
+    showError(params){
+        let options = { title:"操作失败" };
+        if(typeof params == "string"){
+            options.title = params;
+        }
+        if(typeof params == "object"){
+            options = Object.assign(options,params);
+        }
+        try{
+            app.showError(options);
+        }catch(e){
+        }
     },
 
     install(Vue, options) {
@@ -464,15 +536,23 @@ let buiweex = {
 
         Vue.prototype.$formatDate = util.formatDate;
 
-        Vue.prototype.$isIPad = util.isIPad();
+        Vue.prototype.$isIPad = util.isIPad;
 
-        Vue.prototype.$isIPhoneX = util.isIPhoneX();
+        Vue.prototype.$isIPhoneX = util.isIPhoneX;
 
-        Vue.prototype.$isIPhone = util.isIPhone();
+        Vue.prototype.$isIPhone = util.isIPhone;
 
-        Vue.prototype.$isAndroid = util.isAndroid();
+        Vue.prototype.$isAndroid = util.isAndroid;
 
-        Vue.prototype.$fixStyle = util.fixStyle();
+        Vue.prototype.$fixStyle = util.fixStyle;
+
+        Vue.prototype.$showLoading = that.showLoading;
+
+        Vue.prototype.$hideLoading = that.hideLoading;
+
+        Vue.prototype.$showSuccess = that.showSuccess;
+
+        Vue.prototype.$showError = that.showError;
 
     }
 }
