@@ -15,9 +15,8 @@ const weexEntry = {};
 
 //输出web端入口文件的内容
 const getWebEntryFileContent = (entryPath, vueFilePath, routerB) => {
-    let relativeEntryPath = helper.root(vueFilePath.replace('./src', ''));
     let contents = '';
-    let entryContents = fs.readFileSync(relativeEntryPath).toString();
+    let entryContents = fs.readFileSync(vueFilePath).toString();
     let lastContents = '';
     lastContents = routerB ? `
 new Vue(Vue.util.extend({el: '#root', router}, App));
@@ -35,8 +34,7 @@ weex.init(Vue)
 
 //输出weex端入口文件的内容
 const getWeexEntryFileContent = (entryPath, vueFilePath, routerB) => {
-    let relativeEntryPath = helper.root(vueFilePath.replace('./src', ''));
-    let entryContents = fs.readFileSync(relativeEntryPath).toString();
+    let entryContents = fs.readFileSync(vueFilePath).toString();
     let lastContents = "";
     lastContents = routerB ? `
 new Vue(Vue.util.extend({el: '#root', router}, App));
