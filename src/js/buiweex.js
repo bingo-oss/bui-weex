@@ -295,7 +295,7 @@ let buiweex = {
      * @param params.headers {object} 请求头, Content-Type默认值是 application/x-www-form-urlencoded
      * @param params.type {string} 响应类型, json(默认),text
      * @param params.data {object} 请求数据，带到 HTTP body中
-     * @param params.timeout {int} 超时时间 默认15s
+     * @param params.timeout {int} 超时时间 默认30s
      * @return {Promise.<TResult>} 成功: resolve(data, status, statusText), 失败: reject(status, statusText)
      */
     post(params){
@@ -315,7 +315,7 @@ let buiweex = {
                 url: url,
                 headers: headers,
                 body: data,
-                timeout: params.timeout || 15000
+                timeout: params.timeout || 30000
             }, (res) => {
                 if (res.status >= 200 && res.status <= 299) {
                     resolve(res.data, res.status, res.statusText, res);
@@ -334,7 +334,7 @@ let buiweex = {
      * @param params.headers {object} 请求头
      * @param params.type {string} 响应类型, json(默认),text
      * @param params.data {object} 请求数据，自动拼接到url后面
-     * @param params.timeout {int} 超时时间 默认15s
+     * @param params.timeout {int} 超时时间 默认30s
      * @return {Promise.<TResult>} 成功: resolve(data, status, statusText), 失败: reject(status, statusText)
      */
     get(params){
@@ -362,7 +362,7 @@ let buiweex = {
                 type: type,
                 url: url,
                 headers: headers,
-                timeout: params.timeout || 15000
+                timeout: params.timeout || 30000
             }, (res) => {
                 if (res.status >= 200 && res.status <= 299) {
                     resolve(res.data, res.status, res.statusText, res);
