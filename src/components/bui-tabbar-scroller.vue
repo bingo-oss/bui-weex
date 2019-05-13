@@ -43,7 +43,7 @@
         props : {
             tabs : {
                 type : Array,
-                defulat : ()=>[]
+                default : ()=>[]
             },
             tabStyle : {
                 type : Object,

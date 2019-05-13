@@ -8,7 +8,7 @@
             <text class='link' :style="{'color:active': 'black'}" @click='linkTo("/test2")'>tab3</text>
         </div>
         <div class="span1" style="height: 750px;">
-            <router-view/>
+            <router-view></router-view>
         </div>
 
 
@@ -35,7 +35,6 @@
 
 <script>
     const globalEvent = weex.requireModule('globalEvent');
-
     module.exports = {
         data: function () {
             return {
@@ -59,7 +58,13 @@
         },
         components: {
         },
+        watch: {
+            $route(to,from){
+                this.$alert(to.path);
+            }
+        },
         mounted: function () {
+            this.$alert(this.$route);
             globalEvent.addEventListener("androidback",(e)=> {
                 this.$pop();
             });

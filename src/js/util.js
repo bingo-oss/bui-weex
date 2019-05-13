@@ -1,5 +1,3 @@
-
-
 let util = {
     formatDate(time,format){
         format = format || "yyyy-MM-dd hh:mm:ss";
@@ -30,7 +28,7 @@ let util = {
         return WXEnvironment && (WXEnvironment.deviceModel.indexOf('iPad') === 0);
     },
     isIPhoneX() {
-        return WXEnvironment && (WXEnvironment.deviceModel === 'iPhone10,3' || WXEnvironment.deviceModel === 'iPhone10,6' || WXEnvironment.deviceModel === 'iPhone11,6');
+        return WXEnvironment && (WXEnvironment.deviceModel === 'iPhone10,3' || WXEnvironment.deviceModel === 'iPhone10,6' || WXEnvironment.deviceModel === 'iPhone11,6' || WXEnvironment.deviceModel === 'iPhone11,2' || WXEnvironment.deviceModel === 'iPhone11,4' || WXEnvironment.deviceModel === 'iPhone11,8');
     },
     isIPhone(){
         return WXEnvironment &&  WXEnvironment.platform === 'iOS';

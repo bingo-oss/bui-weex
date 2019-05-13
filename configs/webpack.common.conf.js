@@ -137,6 +137,7 @@ const getBaseConfig = () => ({
             '@': helper.resolve('src'),
             'src' : helper.resolve('src'),
             'css' : helper.resolve('src/css'),
+            'js' : helper.resolve('src/js'),
             "views": helper.resolve('src/views'),
         }
     },

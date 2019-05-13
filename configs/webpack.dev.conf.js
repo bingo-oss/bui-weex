@@ -152,6 +152,19 @@ const devWebpackConfig = webpackMerge(commonConfig[0], {
  * Webpack configuration for weex.
  */
 const weexConfig = webpackMerge(commonConfig[1], {
+    plugins: [
+        /**
+         * Plugin: webpack.DefinePlugin
+         * Description: The DefinePlugin allows you to create global constants which can be configured at compile time.
+         *
+         * See: https://webpack.js.org/plugins/define-plugin/
+         */
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': config.dev.env
+            }
+        }),
+    ],
     watch: true
 })
 
