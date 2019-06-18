@@ -1,17 +1,17 @@
 /**
- * 框架中常用的工具方法
+ * 框架核心方法
  */
 const modal = weex.requireModule('modal');
 const animation = weex.requireModule('animation');
 const navigator = weex.requireModule('navigator');
 const navigatorEx = weex.requireModule("NavigatorExModule");
 const stream = weex.requireModule('stream');
-const app = weex.requireModule("AppModule");//仅支持在Link中使用
+const meta = weex.requireModule('meta');
+const app = weex.requireModule("AppModule"); //仅支持在Link中使用
 
 import util from './util.js';
 
 let buiweex = {
-    //components下的组件
     buiActionSheet: require("../components/bui-actionsheet.vue"),
     buiButton: require("../components/bui-button.vue"),
     buiCheckbox: require("../components/bui-checkbox.vue"),
@@ -46,16 +46,15 @@ let buiweex = {
     buiSwipeCell: require("../components/bui-swipe-cell.vue"),
     icon: require("../components/icon.vue"),
     buiTabbarScroller: require("../components/bui-tabbar-scroller.vue"),
-    // buiEpSlider:require("../components/bui-ep-slider.vue"),
     buiTimeline: require("../components/bui-timeline.vue"),
     buiTimelineItem: require("../components/bui-timeline-item.vue"),
     buiTag: require("../components/bui-tag.vue"),
     buiOptionList: require("../components/bui-option-list.vue"),
-    buiDropload : require("../components/bui-dropload.vue"),
-    buiPopover : require("../components/bui-popover.vue"),
-    buiPoptip : require("../components/bui-poptip.vue"),
-    // buiCheckboxs: require("../components/bui-checkboxs.vue"),
-    // buiRadios: require("../components/bui-radios.vue"),
+    buiDropload: require("../components/bui-dropload.vue"),
+    buiPopover: require("../components/bui-popover.vue"),
+    buiPoptip: require("../components/bui-poptip.vue"),
+
+
     /**
      * 吐司信息
      * @param msg {string} 提示文本
@@ -252,7 +251,7 @@ let buiweex = {
      * 退出当前轻应用
      * @param options {object} 配置参数
      */
-    close(options){
+    close(options) {
         options = options || {};
         try {
             navigatorEx.close();
@@ -298,7 +297,7 @@ let buiweex = {
      * @param params.timeout {int} 超时时间 默认30s
      * @return {Promise.<TResult>} 成功: resolve(data, status, statusText), 失败: reject(status, statusText)
      */
-    post(params){
+    post(params) {
         let url = params.url || "";
         let headers = params.headers || {};
         let data = params.data;
@@ -337,13 +336,13 @@ let buiweex = {
      * @param params.timeout {int} 超时时间 默认30s
      * @return {Promise.<TResult>} 成功: resolve(data, status, statusText), 失败: reject(status, statusText)
      */
-    get(params){
+    get(params) {
         return new Promise((resolve, reject) => {
             let url = params.url || "";
             let headers = params.headers || {};
             let data = params.data || {};
             let type = params.type || "json";
-            if (url.indexOf("?")<0) {
+            if (url.indexOf("?") < 0) {
                 url += "?";
             }
             if (typeof data == "object") {
@@ -374,19 +373,14 @@ let buiweex = {
     },
 
     /**
-     * 适配viewport
+     * 适配viewport,主要处理ipad下的viewport
      * @method fixViewport
      */
-    fixViewport(){
-        let _this = buiweex;
-        const meta = weex.requireModule('meta');
+    fixViewport() {
         let width = 750;
-
         if (util.isIPad()) {
-            _this.alert(122);
-            width = 1280;
+            width = 1536;
         }
-
         meta.setViewport({
             width: width
         });
@@ -398,17 +392,17 @@ let buiweex = {
      * @param {object} params 参数
      * @param {string} params.title 显示文本
      */
-    showLoading(params){
-        let options = { title:"加载中..." };
-        if(typeof params == "string"){
+    showLoading(params) {
+        let options = { title: "加载中..." };
+        if (typeof params == "string") {
             options.title = params;
         }
-        if(typeof params == "object"){
-            options = Object.assign(options,params);
+        if (typeof params == "object") {
+            options = Object.assign(options, params);
         }
-        try{
+        try {
             app.showLoading(options);
-        }catch(e){
+        } catch (e) {
         }
     },
 
@@ -416,10 +410,10 @@ let buiweex = {
      * 隐藏加载中进度条
      * @method hideLoading
      */
-    hideLoading(){
+    hideLoading() {
         try {
             app.hideLoading();
-        } catch (e) { 
+        } catch (e) {
         }
     },
 
@@ -429,17 +423,17 @@ let buiweex = {
      * @param {object} params 参数
      * @param {string} params.title 显示文本
      */
-    showSuccess(params){
-        let options = { title:"操作成功" };
-        if(typeof params == "string"){
+    showSuccess(params) {
+        let options = { title: "操作成功" };
+        if (typeof params == "string") {
             options.title = params;
         }
-        if(typeof params == "object"){
-            options = Object.assign(options,params);
+        if (typeof params == "object") {
+            options = Object.assign(options, params);
         }
-        try{
+        try {
             app.showSuccess(options);
-        }catch(e){
+        } catch (e) {
         }
     },
 
@@ -449,17 +443,17 @@ let buiweex = {
      * @param {object} params 参数
      * @param {string} params.title 显示文本
      */
-    showError(params){
-        let options = { title:"操作失败" };
-        if(typeof params == "string"){
+    showError(params) {
+        let options = { title: "操作失败" };
+        if (typeof params == "string") {
             options.title = params;
         }
-        if(typeof params == "object"){
-            options = Object.assign(options,params);
+        if (typeof params == "object") {
+            options = Object.assign(options, params);
         }
-        try{
+        try {
             app.showError(options);
-        }catch(e){
+        } catch (e) {
         }
     },
 
@@ -501,16 +495,13 @@ let buiweex = {
                 'bui-swipe-cell': that.buiSwipeCell,
                 'icon': that.icon,
                 'bui-tabbar-scroller': that.buiTabbarScroller,
-                // 'bui-ep-slider': that.buiEpSlider,
                 'bui-timeline': that.buiTimeline,
                 'bui-timeline-item': that.buiTimelineItem,
                 'bui-tag': that.buiTag,
                 'bui-option-list': that.buiOptionList,
-                'bui-dropload' : that.buiDropload,
-                'bui-popover' : that.buiPopover,
-                'bui-poptip' : that.buiPoptip,
-                // 'bui-checkboxs': that.buiCheckboxs,
-                // 'bui-radios': that.buiRadios,
+                'bui-dropload': that.buiDropload,
+                'bui-popover': that.buiPopover,
+                'bui-poptip': that.buiPoptip
             }
         });
 
@@ -557,6 +548,8 @@ let buiweex = {
         Vue.prototype.$showSuccess = that.showSuccess;
 
         Vue.prototype.$showError = that.showError;
+
+        Vue.prototype.$fixViewport = that.fixViewport;
 
     }
 }
