@@ -1,7 +1,7 @@
 {
   "name": "bui-weex",
   "description": "UI Component for weex framework",
-  "version": "0.4.6",
+  "version": "0.4.20",
   "main": "src/js/buiweex.js",
   "keywords": [
     "weex",
@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "phantom-limb": "0.0.1",
+    "postcss-weex": "^1.0.5",
     "vue": "^2.5.11",
     "vue-router": "^3.0.1",
     "weex-vue-render": "^1.0.17"
@@ -38,14 +39,15 @@
     "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^0.28.8",
     "extract-text-webpack-plugin": "^3.0.2",
-    "portfinder": "^1.0.13",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "fs-extra": "^5.0.0",
     "glob": "^7.1.2",
     "html-webpack-plugin": "^2.30.1",
     "html-webpack-plugin-for-multihtml": "^2.30.2",
+    "linkapi": "^0.3.28",
     "node-notifier": "^5.1.2",
     "node-sass": "^4.9.3",
+    "portfinder": "^1.0.13",
     "sass-loader": "^7.1.0",
     "script-ext-html-webpack-plugin": "^1.8.5",
     "vue-loader": "^12.2.0",

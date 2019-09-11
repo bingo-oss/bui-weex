@@ -1,9 +1,9 @@
 <template>
-    <div>
+    <div style="background-color: #00B4FF">
         <bui-header title="选项卡(bui-tabbar)" :leftItem="leftItem" @leftClick="back"></bui-header>
 
         <bui-tabbar :tabItems="tabItems" showSelectedLine=true @change="onItemChange" v-model="currentTab"></bui-tabbar>
-        <slider class="slider" @change="onSliderChange" :index="currentTab">
+        <slider class="slider" @change="onSliderChange" :index="currentTab" style="background-color: red">
             <div class="slider-item">
                <text class="h1">tab0</text>
             </div>

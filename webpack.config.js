@@ -11,6 +11,7 @@ module.exports = env => {
       break;
     case 'dev':
     case 'development':
+      webpackConfig = require('./configs/webpack.dev.conf');
     default:
       webpackConfig = require('./configs/webpack.dev.conf');
   }

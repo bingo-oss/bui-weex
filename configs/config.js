@@ -7,14 +7,14 @@ const config = {
   pluginConfigPath: 'plugins/plugins.json',
   pluginFilePath: 'plugins/plugins.js',
   // router
-  routerFilePath: './src/router/**',
+  routerFilePath: 'router/**',
   routerWebDir: '.temp/web/router',
   routerWeexDir: '.temp/weex/router',
   // common
   sourceDir: 'src',
   templateWebDir: '.temp/web',
   templateWeexDir: '.temp/weex',
-  entryFilePath: './src/entry/**',    //入口文件
+  entryFilePath: 'entry/**',    //入口文件
   // Module exclude from compile process
   excludeModuleReg: /node_modules(?!(\/|\\).*(weex).*)/,
   // Filter for entry files

@@ -74,7 +74,10 @@
         },
         watch: {
             value (){
-                this.newList = this.initList();
+                this.newItems = this.initList();
+            },
+            items(){
+                this.newItems = this.initList();
             }
         },
         computed: {

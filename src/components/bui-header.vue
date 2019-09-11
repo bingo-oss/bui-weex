@@ -1,7 +1,7 @@
 <template>
     <div :style="{'background-color':backgroundColor}">
 
-        <div style="height: 40px;" v-if="iosFixed"></div>
+        <div :style="{'height': fixedHeight}" v-if="iosFixed"></div>
 
         <div class="bui-header" :style="{'height':height}">
             <div class="bui-header-left" :style="{'height':height}">
@@ -44,6 +44,7 @@
         icons: '',
         text: ''
     };
+    import util from "../js/util";
     var platform = weex.config.env.platform.toLowerCase();
     module.exports = {
         data(){
@@ -82,7 +83,7 @@
             },
             height: {
                 type: String,
-                default: "90px"
+                default: "44wx"
             },
             maxTitleWidth: {
                 type: String,
@@ -92,6 +93,9 @@
         computed: {
             iosFixed () {
                 return platform === "ios";
+            },
+            fixedHeight() {
+                return this.iosFixed && util.isIPhoneX() ? "44wx" : "20wx"
             }
         },
         methods: {

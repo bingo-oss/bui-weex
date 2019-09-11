@@ -9,9 +9,11 @@
         <div style="padding: 10px;flex: 1">
             <scroller>
                 <text class="h4">横向单选</text>
-                <bui-radio v-model="selectedValue" :items="items"></bui-radio>
-                <text class="h4 mT50" @click="reset">垂直单选(文字右边)</text>
-                <bui-radio v-model="selectedValue1" :textStyles="textStyles" iconSize="30" fontSize="30" :containerStyle="containerStyle" direction="vertical" selectedColor="#FF943B" @selected="changeValue" :items="items1"></bui-radio>
+                <text class="h4" @click="fn">点击不可选</text>
+                <text class="h4" @click="reset">点击多选清空</text>
+                <bui-radio v-model="selectedValue1" :items="items1" :disabled="disabled"></bui-radio>
+                <text class="h4 mT50">垂直单选(文字右边)</text>
+                <bui-radio v-model="selectedValue" :textStyles="textStyles" iconSize="30" fontSize="30" :containerStyle="containerStyle" direction="vertical" selectedColor="#FF943B" @selected="changeValue" :items="items"></bui-radio>
                 <text class="h4 mT50">垂直单选(文字左边)</text>
                 <bui-radio textDirection="left" direction="vertical" @selected="changeValue" v-model="selectedValue" :items="items"></bui-radio>
                 <text class="h4 mT50">单选场景案例</text>
@@ -52,7 +54,7 @@
                 showPopup1: false,
                 changevalue: '',
                 selectedValue:"2",
-                selectedValue1:"2",
+                selectedValue1:"",
                 items:[
                     {value:"1",title:'全部'},
                     {value:"2",title:'选项一sfsdfsdfsdfsdfsdf djsdfsdjfks dj sdfksd fsdjfsdjfksdfksdfk k  dsfsdfk fdskjfsdjfsdf sdf sdfsdfj '},
@@ -64,7 +66,8 @@
                     {value:"2",title:'选项一'},
                     {value:"3",title:'选项二'},
                     {value:"4",title:'选项三'}
-                ]
+                ],
+                disabled: false
             }
         },
         computed :{
@@ -102,8 +105,10 @@
                 this.$toast(JSON.stringify(this.changevalue));
                 this.showPopup1 = false;
             },
+            fn(){
+                this.disabled = !this.disabled
+            },
             reset(){
-                debugger;
                 this.selectedValue1 = '';
             }
         }

@@ -4,9 +4,9 @@ import approuter from 'src/views/example/router/router.vue'
 import test1 from 'src/views/example/router/test1.vue'
 import test2 from 'src/views/example/router/test2.vue'
 
-Vue.use(Router)
+Vue.use(Router);
 
-module.exports = new Router({
+export default new Router({
   routes: [
     {
         path: '/',

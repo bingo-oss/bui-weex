@@ -2,12 +2,13 @@
     <div class="flex-column">
         <bui-header title="路由(router)" :leftItem="leftItem" @leftClick="back"></bui-header>
         <div class="panel">
+            <!--<text class='link' :style="{'color:active': 'black'}" @click='linkTo("/")'>tab1</text>-->
             <text class='link' :style="{'color:active': 'black'}" @click='linkTo("/")'>tab1</text>
             <text class='link' :style="{'color:active': 'black'}" @click='linkTo(`/test1/${id}`)'>tab2</text>
             <text class='link' :style="{'color:active': 'black'}" @click='linkTo("/test2")'>tab3</text>
         </div>
         <div class="span1" style="height: 750px;">
-            <router-view/>
+            <router-view></router-view>
         </div>
 
 
@@ -34,7 +35,6 @@
 
 <script>
     const globalEvent = weex.requireModule('globalEvent');
-
     module.exports = {
         data: function () {
             return {
@@ -57,9 +57,14 @@
 
         },
         components: {
-            // "bui-image": buiImage.buiImage
+        },
+        watch: {
+            $route(to,from){
+                this.$alert(to.path);
+            }
         },
         mounted: function () {
+            this.$alert(this.$route);
             globalEvent.addEventListener("androidback",(e)=> {
                 this.$pop();
             });

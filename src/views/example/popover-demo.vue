@@ -103,7 +103,6 @@ export default {
     handleItemClick({placement}){
       this.placement = placement;
       this.open();
-      
     },
   	open(e){
   		this.visible = true;

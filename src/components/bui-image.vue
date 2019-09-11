@@ -4,7 +4,7 @@
            v-bind:style="{'border-radius':radius, 'width': width, 'height': height}"
            v-bind:resize="resize"
            @click="_click($event)"
-           @load="_load()"></image>
+           @load="_load()" />
 </template>
 
 <script>
@@ -52,7 +52,8 @@
                 this.$emit('load');
             },
             _isHttpOrFile(path){
-                return path.indexOf("http")==0 || path.indexOf("file")==0;
+                //http file base64
+                return path.indexOf("http")==0 || path.indexOf("file")==0 || path.indexOf("data:image")==0;
             },
             _getContext(){
                 let url = weex.config.bundleUrl;

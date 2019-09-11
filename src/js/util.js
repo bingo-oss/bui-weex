@@ -1,7 +1,6 @@
-
-
 let util = {
     formatDate(time,format){
+        format = format || "yyyy-MM-dd hh:mm:ss";
         let d = new Date();//创建时间对象
         let localTime = time;//当地时间戳
         let localOffset=d.getTimezoneOffset()*60000;//获得当地时间偏移的毫秒数
@@ -28,8 +27,11 @@ let util = {
     isIPad() {
         return WXEnvironment && (WXEnvironment.deviceModel.indexOf('iPad') === 0);
     },
+    isAppleSimulator() {
+        return WXEnvironment && (WXEnvironment.deviceModel === 'x86_64');
+    },
     isIPhoneX() {
-        return WXEnvironment && (WXEnvironment.deviceModel === 'iPhone10,3' || WXEnvironment.deviceModel === 'iPhone10,6');
+        return WXEnvironment && (WXEnvironment.deviceModel === 'iPhone10,3' || WXEnvironment.deviceModel === 'iPhone10,6' || WXEnvironment.deviceModel === 'iPhone11,6' || WXEnvironment.deviceModel === 'iPhone11,2' || WXEnvironment.deviceModel === 'iPhone11,4' || WXEnvironment.deviceModel === 'iPhone11,8');
     },
     isIPhone(){
         return WXEnvironment &&  WXEnvironment.platform === 'iOS';
