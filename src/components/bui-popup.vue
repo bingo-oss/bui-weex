@@ -42,7 +42,7 @@ export default {
     },
     unit: {
       type: String,
-      default: 'wx'
+      default: 'px'
     }
   },
   watch: {
