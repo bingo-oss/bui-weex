@@ -131,7 +131,7 @@
   left: 0px;
   right: 0px;
   top: 0px;
-  bottom: 0px;
+  bottom: 1px;
   flex-direction: row;
   justify-content: flex-end;
 }
@@ -151,6 +151,7 @@
   color: $color_white;
 }
 .bui-list-swipe-main{
+  background-color: #ffffff;
   flex-direction: row;
   //justify-content: flex-start
 }
