@@ -47,11 +47,6 @@
     import util from "../js/util";
     var platform = weex.config.env.platform.toLowerCase();
     module.exports = {
-        data(){
-            return{
-                activeColor:"#b9c2cf"
-            }
-        },
         props: {
             title: {
                 type: String,
@@ -88,6 +83,10 @@
             maxTitleWidth: {
                 type: String,
                 default: "400px"
+            },
+            activeColor: {
+                type: String,
+                default: "#b9c2cf"
             }
         },
         computed: {
