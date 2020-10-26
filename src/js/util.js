@@ -39,15 +39,9 @@ let util = {
     return WXEnvironment && WXEnvironment.deviceModel === "x86_64";
   },
   isIPhoneX() {
-    return (
-      WXEnvironment &&
-      (WXEnvironment.deviceModel === "iPhone10,3" ||
-        WXEnvironment.deviceModel === "iPhone10,6" ||
-        WXEnvironment.deviceModel === "iPhone11,6" ||
-        WXEnvironment.deviceModel === "iPhone11,2" ||
-        WXEnvironment.deviceModel === "iPhone11,4" ||
-        WXEnvironment.deviceModel === "iPhone11,8")
-    );
+    let reg = /iPhone(\d*)/g;
+    let result = reg.exec(WXEnvironment && WXEnvironment.deviceModel);
+    return (result != null ? Number(result[1]) >= 10 : false);
   },
   isIPhone() {
     return WXEnvironment && WXEnvironment.platform === "iOS";
