@@ -4,6 +4,8 @@
         <text class="h2">BUI-Weex</text>
         <text class="h4">专注为Weex前端开发者提供高质量UI组件</text>
         <bui-button style="margin-top: 30px" type="primary" value="快速体验" @click="jumpTo"></bui-button>
+        <text class="text value">{{encodeURIComponent(" ")}}</text>
+        <text class="text value">{{encodeURIComponent("2020-03-17 17:17:29")}}</text>
     </div>
 </template>
 
