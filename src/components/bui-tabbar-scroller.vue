@@ -1,7 +1,7 @@
 <template>
     <scroller :show-scrollbar="false" scroll-direction="horizontal" class="tab-bar" :style="{height:(tabStyles().height), width:width}">
         <div class="tab-bar-item" :ref="'tabbar-item'+index" v-for="(item,index) in tabs" :key="index" @click="handleClick($event,item,index)" :style="tabStyles(index)">
-            <bui-image v-if="item.pic || item.selectedPic" class="tab-bar-image" :src="index === value ? item.selectedPic || item.pic : item.pic" :width="imageStyles().width" :height="imageStyles().height" :radius="imageStyles().radius" @click="handleClick($event,item,index)"></bui-image>
+            <bui-image v-if="item.pic || item.selectedPic" class="tab-bar-image" :src="index === value ? item.selectedPic || item.pic : item.pic" :width="imageStyles.width" :height="imageStyles.height" :radius="imageStyles.radius" @click="handleClick($event,item,index)"></bui-image>           
             <bui-icon v-else-if="item.icon" :name="item.icon"
                       :color="index === value ? iconStyles().selectedColor : iconStyles().color"
                       @click="handleClick($event,item,index)" :size="iconStyles().size">
@@ -139,16 +139,16 @@
                     borderTopColor : selected ?selectedBorderTopColor :borderTopColor
                 }
             },
-            imageStyles(){
-                this.imageStyle = Object.assign(imageDefaultStyle,this.imageStyle);
-                let {width,height,radius} = this.imageStyle;
-                return {
-                    width:width+'px',
-                    height:height+'px',
-                    radius : radius + 'px'
-                }
+            // imageStyles(){
+            //     this.imageStyle = Object.assign(imageDefaultStyle,this.imageStyle);
+            //     let {width,height,radius} = this.imageStyle;
+            //     return {
+            //         width:width+'px',
+            //         height:height+'px',
+            //         radius : radius + 'px'
+            //     }
 
-            },
+            // },
             iconStyles(){
                 this.iconStyle = Object.assign(iconDefaultStyle,this.iconStyle);
                 let {color,selectedColor,size} = this.iconStyle;
@@ -164,6 +164,18 @@
                 this.prevIndex = oldValue || 0;
                 this.to(newVal);
             }
+        },
+        computed :{
+          imageStyles(){
+                this.imageStyle = Object.assign(imageDefaultStyle,this.imageStyle);
+                let {width,height,radius} = this.imageStyle;
+                return {
+                    width:width+'px',
+                    height:height+'px',
+                    radius : radius + 'px'
+                }
+
+            },
         }
     }
 </script>

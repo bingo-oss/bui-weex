@@ -17,12 +17,20 @@
                 <text class="h1">tab3</text>
             </div>
             <div class="slider-item">
-                <text class="h1">tab3</text>
+                <text class="h1">tab4</text>
             </div>
             <div class="slider-item">
-                <text class="h1">tab3</text>
+                <text class="h1">tab5</text>
             </div>
         </slider>
+        <bui-tabbar-scroller 
+          :tabs="list" 
+          selectedBackground="#F77845" 
+          selectedColor="#ffffff" 
+          @change="onItemChange" 
+          v-model="currentTab"
+          :tabStyle="tabStyle">
+        </bui-tabbar-scroller>
     </div>
 </template>
 
@@ -64,9 +72,7 @@
                     icon: 'ion-chevron-left'
                 },
                 currentTab:1,
-                tabStyle: {
-                    // backgroundColor: "#000"
-                },
+                
                 tabItems: [
                     {
                         title: "首页1",
@@ -92,8 +98,52 @@
                         icon: "ion-ribbon-a",
                         title: "奖励"
                     }
+                ],
+                list : [
+                  {
+                    title : '图标1',
+                    pic : '/image/demo.png',
+                    selectedPic : '/image/logo.png'
+                  },
+                  {
+                    title : '图标2',
+                    pic : '/image/pic.png',
+                    selectedPic : '/image/delete-img.png'
+                  },
+                  {
+                    title : '图标3',
+                    pic : '/image/demo.png',
+                    selectedPic : '/image/logo.png'
+                  },
+                  {
+                    title : '图标4',
+                    pic : '/image/demo.png',
+                    selectedPic : '/image/logo.png'
+                  },
+                  {
+                    title : '图标5',
+                    pic : '/image/pic.png',
+                    selectedPic : '/image/delete-img.png'
+                  },
+                  {
+                    title : '图标6',
+                    pic : '/image/demo.png',
+                    selectedPic : '/image/logo.png'
+                  },
                 ]
             }
+        },
+        computed : {
+          imageStyle(){
+            return {
+              width : 750/this.list.length
+            }
+          },
+          tabStyle(){
+            return {
+              width : 750/this.list.length
+            }
+          },
         },
         methods: {
             back() {
