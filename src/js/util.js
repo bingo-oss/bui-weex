@@ -41,7 +41,7 @@ let util = {
   isIPhoneX() {
     let reg = /iPhone(\d*)/g;
     let result = reg.exec(WXEnvironment && WXEnvironment.deviceModel);
-    return (result != null ? Number(result[1]) >= 10 : false);
+    return (result != null ? Number(result[1]) > 10 : false);
   },
   isIPhone() {
     return WXEnvironment && WXEnvironment.platform === "iOS";
