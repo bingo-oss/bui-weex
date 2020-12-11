@@ -39,9 +39,8 @@ let util = {
     return WXEnvironment && WXEnvironment.deviceModel === "x86_64";
   },
   isIPhoneX() {
-    let reg = /iPhone(\d*)/g;
-    let result = reg.exec(WXEnvironment && WXEnvironment.deviceModel);
-    return (result != null ? Number(result[1]) > 10 : false);
+    let result = WXEnvironment.deviceModel.replace('iPhone', '').split(',');
+    return (Number(result[0]) >= 10) && (result.toString() !== '10,1');
   },
   isIPhone() {
     return WXEnvironment && WXEnvironment.platform === "iOS";
